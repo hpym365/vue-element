@@ -3,7 +3,7 @@ import * as types from '../types'
 const state = {
   loading: false,
   sort: true,
-  data: [],
+  data: [{name: '张三', age: '22', sex: 'male', desc: 'nonono'}],
   column: [
     {
       showname: '姓名',
@@ -37,7 +37,7 @@ const state = {
   url: '',
   requestparam: {},
   sortfield: '123',
-  sorttype: 'asc',
+  sorttype: '-',
   headerclass: ''
 }
 
@@ -65,22 +65,26 @@ const getters = {
   },
   [types.GETTER_GRID_HEADER_CLASS]: state => {
     return state.headerclass
+  },
+  [types.CHANGE_CURRENT_SORT_TYPE]: state => {
+    return state.sorttype
   }
 }
 
 const actions = {
-  /**
-   * 更换排序字段了  需要将requetparam 里的 sort 更新为当前字段  将sort方式更改为 默认的asc
-   * @type {string}
-   */
+
   [types.ACTION_SORT_BY_FIELD] (store, value) {
+    /**
+     * 更换排序字段了  需要将requetparam 里的 sort 更新为当前字段  将sort方式更改为 默认的asc
+     * @type {string}
+     */
     console.log(value)
     let sorttype = 'asc'
     if (store.state.sortfield === value) {
       if (store.state.sorttype === 'asc') {
         sorttype = 'desc'
       } else if (store.state.sorttype === 'desc') {
-        sorttype = '-'
+        sorttype = 'no'
       } else {
         sorttype = 'asc'
       }

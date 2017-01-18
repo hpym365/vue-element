@@ -4,30 +4,22 @@
       <thead>
       <GridHeader></GridHeader>
       </thead>
-      <tbody>
-      <tr>
-        <td>阿莫西林分散片</td>
-        <td>一日3次，一次1片，饭后10分钟口服</td>
-        <td style="text-align: center;">0.25gX12</td>
-        <td style="text-align: center;">1</td>
-        <td style="text-align: center;">盒</td>
-        <td style="text-align: center;">
-          <button class="xBtn xBtn-danger">删除</button>
-        </td>
-      </tr>
-      </tbody>
+      <GridBody></GridBody>
     </table>
   </div>
 </template>
 
 <script>
   import GridHeader from './GridHeader'
+  import GridBody from './GridBody.vue'
+
   import {mapGetters} from 'vuex'
   import * as types from '../../store/types'
 
   export default {
     components: {
-      GridHeader
+      GridHeader,
+      GridBody
     },
     props: [],
     computed: {

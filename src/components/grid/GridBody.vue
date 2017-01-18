@@ -1,29 +1,15 @@
 <!--
-*@date:2017-01-17 22:02:11
+*@date:2017-01-18 22:40:20
 *@author:hanpeng
-*@desc 表头实现功能
-1字段宽度自定义
-2字段排序功能(参数sort==true&&cols里的字段都为true才排序)
-3根据sort属性展示不同class
+*@desc 表体
 *
 -->
 <template>
-  <tr>
-    <template v-for=" col in collist ">
-      <th :width="col.width" :class="sort && col.sort ? headerSortClass : headerclass">
-        <template v-if="sort && col.sort">
-          <a href="javascript:void(0)" @click="sortByField(col)">{{ col.showname }}
-            <template v-if="sortfield === col.colname">
-              {{ sortarr[sorttype] }}
-            </template>
-          </a>
-        </template>
-        <template v-else>
-          {{ col.showname }}
-        </template>
-      </th>
-    </template>
-  </tr>
+  <tbody>
+    <tr v-for="row in datalist">
+      <td v-for="col in collist">{{ row[col.colname] }}</td>
+    </tr>
+  </tbody>
 </template>
 
 <script>
@@ -33,7 +19,6 @@
   export default {
     data () {
       return {
-        sortarr: {asc: '↑', desc: '↓', no: '→'},
         headerSortClass: 'myHeaderSortClass'
       }
     },
@@ -58,6 +43,7 @@
     },
     computed: {
       ...mapGetters({
+        'datalist': [types.GETTER_GRID_DATA],
         'collist': [types.GETTER_GRID_COLUMN],
         'sort': [types.GETTER_SORT],
         'sortfield': [types.GETTER_CURRENT_SORT_FIELD],
