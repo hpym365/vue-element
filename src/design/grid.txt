@@ -1,0 +1,10 @@
+grid组件状态 state
+
+loading  加载中
+sort 是否排序
+currSortField
+
+data  内容
+column  字段
+url  数据请求的url
+param 数据请求的参数

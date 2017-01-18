@@ -22,26 +22,26 @@
 
 <script>
   import GridHeader from './GridHeader'
+  import {mapGetters} from 'vuex'
+  import * as types from '../../store/types'
 
   export default {
     components: {
       GridHeader
     },
-    props: [
-      'datalist',
-      'collist',
-      'sort'
-    ],
+    props: [],
     computed: {
-      sort () {
-        if (this.sort === 0) {
-          return 1
-        }
-      }
+      ...mapGetters({
+        'collist': [types.GETTER_GRID_COLUMN],
+        'datalist': [types.GETTER_GRID_DATA]
+      })
     },
     methods: {
       test: function (value) {
 
+      },
+      setColumn: function (column) {
+        this.$store.commit([types.CHANGE_GRID_COLUMN], column)
       }
     }
   }

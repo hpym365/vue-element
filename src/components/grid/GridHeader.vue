@@ -9,9 +9,9 @@
 -->
 <template>
   <tr>
-    <template v-for=" col in mycollist ">
-      <th :width="col.width" :class="ifsort && col.sort ? myHeaderSortClass : myHeaderClass" v-if="ifsort">
-        <template v-if="ifsort && col.sort">
+    <template v-for=" col in collist ">
+      <th :width="col.width" :class="sort && col.sort ? headerSortClass : headerclass" >
+        <template v-if="sort && col.sort">
           <a href="javascript:void(0)" @click="sortByField(col)">{{ col.showname }}</a>
         </template>
         <template v-else>
@@ -24,67 +24,32 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import * as types from '../../store/types'
+
   export default {
     data () {
       return {
-        myHeaderClass: 'myHeaderClass',
-        myHeaderSortClass: 'myHeaderSortClass'
+        headerSortClass: 'myHeaderSortClass'
       }
     },
     components: {},
     props: [
-      'collist',
-      'sort',
-      'headerclass'
     ],
     methods: {
-      ...mapGetters({
-
-      }),
       sortByField: function (col) {
+        this.$store.dispatch([types.ACTION_SORT_BY_FIELD], col.colname)
         window.alert('排序方法ajax请求当前字是:' + col.showname + ' !英文名是:' + col.colname)
       }
     },
     computed: {
-      ifsort () {
-        if (this.sort !== false) {
-          return true
-        }
-      },
-      mycollist () {
-        if (this.collist === undefined) {
-          return [
-            {
-              showname: '姓名',
-              colname: 'name',
-              show: true,
-              type: 'button-component',
-              sort: true,
-              sortType: 'desc',
-              width: '50%'
-            }, {
-              showname: '年龄',
-              colname: 'age',
-              show: true,
-              type: 'a-component',
-              sort: true,
-              sortType: 'desc'
-            }, {
-              showname: '性别',
-              colname: 'sex',
-              show: true
-            }, {
-              showname: '备注',
-              colname: 'desc',
-              show: true
-            }, {
-              showname: '删除',
-              colname: 'delete',
-              show: true,
-              type: 'delete-component'
-            }]
-        }
-      }
+      ...mapGetters({
+        'collist': [types.GETTER_GRID_COLUMN],
+        'sort': [types.GETTER_SORT],
+        'sort1': [types.GETTER_CURRENT_SORT_FIELD],
+        'headerclass': [types.GETTER_GRID_HEADER_CLASS]
+      })
+    },
+    created () {
     }
   }
 </script>
