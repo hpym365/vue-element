@@ -24,6 +24,7 @@ const routes = [
   {path: '/gridheader', component: GridHeader},
   {path: '*', component: {template: '<p>404页面什么都没有啊</p>'}}
 ]
+
 exports.hello = Hello
 
 const router = new VueRouter({

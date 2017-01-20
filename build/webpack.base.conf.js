@@ -21,7 +21,8 @@ module.exports = {
   },
   externals: {
     app: 'app',
-    grid: './src/component/grid/Grid'
+    grid: './src/component/grid/Grid',
+    hello: './src/component/grid/Hello'
   },
   resolve: {
     extensions: ['', '.js', '.vue', '.json'],
