@@ -15,7 +15,7 @@ var webpackConfig = merge(baseConfig, {
   module: {
     loaders: utils.styleLoaders()
   },
-  devtool: '#inline-source-map',
+  devtool: '#cheap-module-eval-source-map',
   vue: {
     loaders: {
       js: 'babel-loader'

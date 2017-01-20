@@ -24,9 +24,10 @@ const routes = [
   {path: '/gridheader', component: GridHeader},
   {path: '*', component: {template: '<p>404页面什么都没有啊</p>'}}
 ]
+exports.hello = Hello
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes // （缩写）相当于 routes: routes
 })
 
@@ -37,3 +38,4 @@ new Vue({
   el: '#app',
   render: (h) => h(App)
 })
+
