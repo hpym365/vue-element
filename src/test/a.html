@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>vue-element</title>
+  <link href=app.css rel=stylesheet>
+</head>
+<body>
+<div id=zzz>
+	<hello></hello>
+</div>
+<script type=text/javascript src=main.js></script>
+<script type=text/javascript src=vue.js></script>
+<script type=text/javascript src=app.js></script>
+<script type=text/javascript src=a.js></script>
+<script type=text/javascript src=vue1.js></script>
+<script>
+	console.log(window.gg)
+
+	var YHD = Vue.extend({        template:'<p>��ӭʹ�����</p>'});
+	Vue.component('yhd-div',hello);
+
+	new Vue({
+		el: '#zzz',
+		components:{hello}
+	})
+</script>
+</body>
+</html>
