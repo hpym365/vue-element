@@ -2,7 +2,7 @@
   <div class="rcl-ude-adviceInfo-tablewrap">
     <table border="5" class="rcl-ude-adviceInfo-table">
       <thead>
-      <GridHeader :collist="mycollist" :datalist="datalist"></GridHeader>
+      <GridHeader :collist="mycollist" :datalist="datalist" :sortfun="sortfun"></GridHeader>
       </thead>
       <GridBody :collist="collist" :datalist="datalist"></GridBody>
     </table>
@@ -24,7 +24,7 @@
       GridHeader,
       GridBody
     },
-    props: ['tt', 'datalist', 'collist'],
+    props: ['tt', 'datalist', 'collist', 'sortfun'],
     computed: {
       mycollist: function () {
         return this.collist
@@ -41,9 +41,7 @@
         this.setColumn()
       },
       setColumn: function (column) {
-        window.alert('setcolumn')
-        console.log(this.testbl)
-        console.log(this)
+        window.alert(this.datalist)
       }
     }
   }

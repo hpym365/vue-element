@@ -13,18 +13,33 @@
 <script type=text/javascript src=http://localhost:8888/app.js></script>
 <script type=text/javascript src=a.js></script>
 <script type=text/javascript src=vue.js></script>
+<script type=text/javascript src=axios.js></script>
 <script>
-	console.log(window.gg)
 
   var dl1 = [{name: '张123三111', age: '22', sex: 'male', desc: 'nonono'}]
   var cl1 = [{ showname: '姓123名111', colname: 'name', show: true, type: 'button-component', sort: true, sortType: 'desc', width: '50%' }, { showname: '年龄', colname: 'age', show: true, type: 'a-component', sort: true, sortType: 'desc' }, { showname: '性别', colname: 'sex', show: true }, { showname: '备注', colname: 'desc', show: true }, { showname: '删除', colname: 'delete', show: true, type: 'delete-component' }]
 
+	function sortfun () {
+    debugger
+    axios.post('http://localhost:8080/vue/main/qryStudent.json').then(function (json) {
+      console.log(json)
+      grid1.datalist=json.data.list
+    })
+  }
+
+  var sf = function sortfun1 () {
+    alert('hahasortfun1')
+  }
+
   var grid1 = grid('grida',dl1,cl1);
+  console.log(this.axios)
+  grid1.setSortFun(sortfun)
+
 
 
   var dl2 = [{name: '张123三222', age: '22', sex: 'male', desc: 'nonono'}]
   var cl2 = [{ showname: '姓123名2222', colname: 'name', show: true, type: 'button-component', sort: true, sortType: 'desc', width: '50%' }, { showname: '年龄', colname: 'age', show: true, type: 'a-component', sort: true, sortType: 'desc' }, { showname: '性别', colname: 'sex', show: true }, { showname: '备注', colname: 'desc', show: true }, { showname: '删除', colname: 'delete', show: true, type: 'delete-component' }]
-  var grid2 = grid('gridb',dl2,cl2);
+  var grid2 = grid('gridb',dl2,cl2,sf);
 
   function dl () {
     debugger

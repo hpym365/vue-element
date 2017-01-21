@@ -12,7 +12,7 @@
     <template v-for=" col in collist ">
       <th :width="col.width" :class="sort && col.sort ? headerSortClass : headerclass">
         <template v-if="sort && col.sort">
-          <a href="javascript:void(0)" @click="sortByField(col)">{{ col.showname }}
+          <a href="javascript:void(0)" @click="sortfun(col)">{{ col.showname }}
             <template v-if="sortfield === col.colname">
               {{ sortarr[sorttype] }}
             </template>
@@ -27,6 +27,9 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
+  console.log(axios)
   export default {
     data () {
       return {
@@ -43,7 +46,7 @@
       collist: {
         type: Array
       },
-      sortFun: {
+      sortfun: {
         type: Function,
         default: function (col) {
           window.alert('this is a sort function')
@@ -59,14 +62,8 @@
         default: 'myHeaderSortClass'
       }
     },
-    methods: {
-      sortByField: function (col) {
-        this.sortFun(col)
-      }
-    },
-    computed: {
-
-    },
+    methods: {},
+    computed: {},
     created () {
     }
   }

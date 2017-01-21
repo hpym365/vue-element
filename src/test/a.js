@@ -1,8 +1,11 @@
-function grid(divname,datalist,collist) {
+function grid(divname,datalist,collist,sortfun) {
 
+
+  console.log('sortfun')
+  console.log(sortfun)
   var element = document.createElement('div');
   element.id = divname
-  element.innerHTML = '<grid :tt="tt" :collist="collist" :datalist="datalist"></grid>'
+  element.innerHTML = '<grid :tt="tt" :collist="collist" :datalist="datalist" :sortfun="sortfun"></grid>'
   document.body.appendChild(element)
 
   var grid = window.$grid
@@ -11,10 +14,14 @@ function grid(divname,datalist,collist) {
     data: {
       tt:'5566',
       datalist: datalist,
-      collist: collist
+      collist: collist,
+      sortfun:sortfun
     },
     components: {grid},
     methods: {
+      setSortFun: function (fun) {
+        this.sortfun = fun
+      }
     }
   })
 
