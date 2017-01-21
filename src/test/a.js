@@ -1,27 +1,26 @@
-
-function aaa () {
-
-
-
-debugger
-
-
-
+function grid(divname,datalist,collist) {
 
   var element = document.createElement('div');
-  element.id = 'bbb'
-  element.innerHTML = '<hello></hello>'
+  element.id = divname
+  element.innerHTML = '<grid :tt="tt" :collist="collist" :datalist="datalist"></grid>'
   document.body.appendChild(element)
 
-  new Vue({
-    el: '#bbb',
-    components:{hello}
+  var grid = window.$grid
+  var gridvue = new Vue({
+    el: '#'+divname,
+    data: {
+      tt:'5566',
+      datalist: datalist,
+      collist: collist
+    },
+    components: {grid},
+    methods: {
+    }
   })
 
-  console.log(hello);
-
+  return gridvue
 }
 
-function test () {
-    console.log('this is test function')
+function test() {
+  console.log('this is test function')
 }

@@ -6,17 +6,33 @@
   <link href=app.css rel=stylesheet>
 </head>
 <body>
-<div id=zzz>
+<div id=app>
+
 </div>
-<script type=text/javascript src=main.js></script>
-<script type=text/javascript src=vue.js></script>
-<script type=text/javascript src=app.js></script>
+<button onclick="dl()">datalist</button>
+<script type=text/javascript src=http://localhost:8888/app.js></script>
 <script type=text/javascript src=a.js></script>
-<script type=text/javascript src=vue1.js></script>
+<script type=text/javascript src=vue.js></script>
 <script>
 	console.log(window.gg)
 
-  aaa()
+  var dl1 = [{name: '张123三111', age: '22', sex: 'male', desc: 'nonono'}]
+  var cl1 = [{ showname: '姓123名111', colname: 'name', show: true, type: 'button-component', sort: true, sortType: 'desc', width: '50%' }, { showname: '年龄', colname: 'age', show: true, type: 'a-component', sort: true, sortType: 'desc' }, { showname: '性别', colname: 'sex', show: true }, { showname: '备注', colname: 'desc', show: true }, { showname: '删除', colname: 'delete', show: true, type: 'delete-component' }]
+
+  var grid1 = grid('grida',dl1,cl1);
+
+
+  var dl2 = [{name: '张123三222', age: '22', sex: 'male', desc: 'nonono'}]
+  var cl2 = [{ showname: '姓123名2222', colname: 'name', show: true, type: 'button-component', sort: true, sortType: 'desc', width: '50%' }, { showname: '年龄', colname: 'age', show: true, type: 'a-component', sort: true, sortType: 'desc' }, { showname: '性别', colname: 'sex', show: true }, { showname: '备注', colname: 'desc', show: true }, { showname: '删除', colname: 'delete', show: true, type: 'delete-component' }]
+  var grid2 = grid('gridb',dl2,cl2);
+
+  function dl () {
+    debugger
+    console.log(grid2.datalist)
+    grid2.datalist=[{name: '33333', age: '66', sex: 'male', desc: 'nonono'}]
+  }
+
+
 
 
 </script>

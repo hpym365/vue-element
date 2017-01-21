@@ -2,10 +2,13 @@
   <div class="rcl-ude-adviceInfo-tablewrap">
     <table border="5" class="rcl-ude-adviceInfo-table">
       <thead>
-      <GridHeader></GridHeader>
+      <GridHeader :collist="mycollist" :datalist="datalist"></GridHeader>
       </thead>
-      <GridBody></GridBody>
+      <GridBody :collist="collist" :datalist="datalist"></GridBody>
     </table>
+    <button @click="setColumn()">asdfasdf</button>
+    <button>{{testbl}}</button>
+    <input v-model="testbl">
   </div>
 </template>
 
@@ -13,27 +16,34 @@
   import GridHeader from './GridHeader'
   import GridBody from './GridBody.vue'
 
-  import {mapGetters} from 'vuex'
-  import * as types from '../../store/types'
-
   export default {
+    data () {
+      return {setcollist: []}
+    },
     components: {
       GridHeader,
       GridBody
     },
-    props: [],
+    props: ['tt', 'datalist', 'collist'],
     computed: {
-      ...mapGetters({
-        'collist': [types.GETTER_GRID_COLUMN],
-        'datalist': [types.GETTER_GRID_DATA]
-      })
+      mycollist: function () {
+        return this.collist
+      },
+      mydatalist: function () {
+        return this.setdatalist || this.datalist
+      },
+      testbl: function () {
+        return this.tt
+      }
     },
     methods: {
-      test: function (value) {
-
+      test: function () {
+        this.setColumn()
       },
       setColumn: function (column) {
-        this.$store.commit([types.CHANGE_GRID_COLUMN], column)
+        window.alert('setcolumn')
+        console.log(this.testbl)
+        console.log(this)
       }
     }
   }

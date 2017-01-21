@@ -27,6 +27,8 @@ const routes = [
 
 exports.hello = Hello
 
+window.$grid = Grid
+
 const router = new VueRouter({
   mode: 'hash',
   routes // （缩写）相当于 routes: routes
