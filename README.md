@@ -12,8 +12,6 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-#查看调用例子
-src/test/demo.html    
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+##
+>查看调用例子
+>src/test/demo.html    
