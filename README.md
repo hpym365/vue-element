@@ -1,6 +1,7 @@
 # vue-element
 
-> Senyint Vue Component使用vue2.0创建组件，封装之后再普通html或jsp使用requirejs模块冬天加载的调用例子
+> #Senyint Vue Component
+> #使用vue2.0创建组件，封装之后再普通html或jsp使用requirejs模块冬天加载的调用例子
 
 # Build Setup
 ``` bash
@@ -17,4 +18,4 @@ npm run build
 
 #查看调用例子
 
->src/test/demo.html
+>##src/test/demo.html
