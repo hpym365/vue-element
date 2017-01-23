@@ -1,3 +1,4 @@
+
 function grid(div,options) {
 
   div.empty();
@@ -6,10 +7,8 @@ function grid(div,options) {
 
   var grid = window.$grid
 
-  console.log(div)
-
   var gridvue = new Vue({
-    el: '#'+div[0].id,
+    el: div[0],
     data: {
       options: options
     },
@@ -20,6 +19,7 @@ function grid(div,options) {
       }
     }
   })
+  gridvue.jqdom = $(gridvue.$el)
 
   return gridvue
 }

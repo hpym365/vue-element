@@ -26,6 +26,8 @@ function showa (div) {
   }]
 
   var pageagrid = grid(div,options)
+
+  console.log(pageagrid)
 }
 
 function showhtmla (div) {
