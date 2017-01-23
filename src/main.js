@@ -34,6 +34,27 @@ const router = new VueRouter({
   routes // （缩写）相当于 routes: routes
 })
 
+Vue.directive('onclick', {
+  // 当绑定元素插入到 DOM 中。
+  inserted: function (el, binding, vnode) {
+    // 聚焦元素
+    debugger
+    console.log(el)
+    console.log(binding.value.fun)
+    console.log(vnode)
+    el.addEventListener('click', binding.value.fun)
+  }
+})
+
+Vue.directive('focus', {
+  // 当绑定元素插入到 DOM 中。
+  inserted: function (el) {
+    // 聚焦元素
+    console.log('focus')
+    el.focus()
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   router,

@@ -2,9 +2,9 @@
   <div class="rcl-ude-adviceInfo-tablewrap">
     <table border="5" class="rcl-ude-adviceInfo-table">
       <thead>
-      <GridHeader :collist="mycollist" :datalist="datalist" :sortfun="sortfun"></GridHeader>
+      <GridHeader :collist="options.collist" :datalist="options.datalist" :sortfun="options.sortfun"></GridHeader>
       </thead>
-      <GridBody :collist="collist" :datalist="datalist"></GridBody>
+      <GridBody :collist="options.collist" :datalist="options.datalist"></GridBody>
     </table>
     <button @click="setColumn()">asdfasdf</button>
   </div>
@@ -22,7 +22,7 @@
       GridHeader,
       GridBody
     },
-    props: ['tt', 'datalist', 'collist', 'sortfun'],
+    props: ['options'],
     computed: {
       mycollist: function () {
         return this.collist

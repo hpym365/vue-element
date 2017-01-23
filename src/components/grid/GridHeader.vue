@@ -27,9 +27,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-
-  console.log(axios)
   export default {
     data () {
       return {

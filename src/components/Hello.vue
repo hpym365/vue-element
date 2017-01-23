@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ amsg }}</h1>
+    <input v-focus>
+    <button v-onclick="{fun:test}">bdclk</button>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/flex.css"/>
+  <script type=text/javascript src=http://localhost:8888/app.js></script>
+  <script type=text/javascript src=grid.js></script>
+  <script type=text/javascript src=vue.js></script>
+  <script type=text/javascript src=axios.js></script>
+  <script data-main="rukou.js" src="require.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+</head>
+<body>
+<div class="ff-lay ff-v">
+  <div class="lay-col-1 ff-lock" style="height: 152px;">
+    <H1 align="center">Senyint Vue Component</H1>
+  </div>
+  <div class="lay-col-2 ff-lay">
+    <div class="lay-row-1 ff-lock" style="width: 202px;">
+      <a onclick="showhtmla($('#showdiv'))">the Page A</a>
+      <br>
+      <a onclick="showhtmlb($('#showdiv'))">the Page B</a>
+      <br>
+    </div>
+    <div id="showdiv" class="lay-row-2 actived">
+      这是进来时候默认的首页.
+      <button v-bdclk="test">123123</button>
+
+
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+
+  requirejs(['pagea','pageb','grid'],function () {
+    console.log('页面被requires 加载了')
+  })
+
+  Vue.directive('bdclk', {
+    // 当绑定元素插入到 DOM 中。
+    inserted: function (el, binding, vnode) {
+      // 聚焦元素
+      debugger
+      console.log(el)
+      console.log(binding)
+      console.log(vnode)
+      el.onclick(function () {
+        window.alert('123')
+      })
+    },
+    componentUpdated: function (el, binding, vnode) {
+      // 聚焦元素
+      debugger
+      console.log(el)
+      console.log(binding)
+      console.log(vnode)
+      el.onclick(function () {
+        window.alert('123')
+      })
+    },
+    bind: function (el, binding, vnode) {
+      // 聚焦元素
+      debugger
+      console.log(el)
+      console.log(binding)
+      console.log(vnode)
+      el.onclick(function () {
+        window.alert('123')
+      })
+    }
+  })
+
+  function test() {
+    alert('test')
+  }
+
+</script>
