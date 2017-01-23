@@ -12,6 +12,8 @@ import Hello from './components/Hello'
 import Grid from './components/grid/Grid'
 import GridHeader from './components/grid/GridHeader'
 
+import Test from './components/Test.vue'
+
 Vue.use(Vuex)
 Vue.use(VueRouter)
 
@@ -20,7 +22,7 @@ Vue.prototype.$axios = axios
 const routes = [
   {path: '/', component: {template: '<h1>Senyint Vue Element</h1>'}},
   {path: '/hello', component: Hello},
-  {path: '/grid', component: Grid},
+  {path: '/grid', component: Test},
   {path: '/gridheader', component: GridHeader},
   {path: '*', component: {template: '<p>404页面什么都没有啊</p>'}}
 ]

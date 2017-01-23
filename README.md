@@ -18,4 +18,4 @@ npm run build
 
 #查看调用例子
 
->##src/test/demo.html
+>#src/test/demo.html

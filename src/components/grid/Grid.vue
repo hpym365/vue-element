@@ -4,7 +4,8 @@
       <thead>
       <GridHeader :collist="options.collist" :datalist="options.datalist" :sortfun="options.sortfun"></GridHeader>
       </thead>
-      <GridBody :collist="options.collist" :datalist="options.datalist"></GridBody>
+      <GridBody :collist="options.collist" :datalist="options.datalist" :rowevent="options.rowevent"
+                :tdcbfun="options.tdcbfun"></GridBody>
     </table>
     <button @click="setColumn()">asdfasdf</button>
   </div>
@@ -23,14 +24,7 @@
       GridBody
     },
     props: ['options'],
-    computed: {
-      mycollist: function () {
-        return this.collist
-      },
-      mydatalist: function () {
-        return this.setdatalist || this.datalist
-      }
-    },
+    computed: {},
     methods: {
       test: function () {
         this.setColumn()

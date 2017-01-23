@@ -19,6 +19,7 @@ define([],function () {
         }
       }
     })
+
     gridvue.jqdom = $(gridvue.$el)
 
     return gridvue

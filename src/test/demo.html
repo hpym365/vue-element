@@ -28,6 +28,41 @@
       这是进来时候默认的首页.
       <button v-bdclk="test">123123</button>
 
+      <table border="4">
+        <tr onclick="alert(456)">
+          <td>
+            姓名
+          </td>
+          <td>
+            姓名
+          </td>
+          <td>
+            姓名
+          </td>
+        </tr>
+        <tr>
+          <td onclick="alert(123)">
+            姓名
+          </td>
+          <td>
+            姓名
+          </td>
+          <td>
+            姓名
+          </td>
+        </tr>
+        <tr>
+          <td>
+            姓名
+          </td>
+          <td>
+            姓名
+          </td>
+          <td>
+            姓名
+          </td>
+        </tr>
+      </table>
 
     </div>
   </div>
@@ -36,7 +71,7 @@
 
 <script>
 
-  requirejs(['demo'],function () {
+  requirejs(['demo'], function () {
     console.log('页面被requires 加载了')
   })
 

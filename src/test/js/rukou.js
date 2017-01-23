@@ -10,6 +10,7 @@ requirejs.config({
     pagea: 'js/pagea',
     pageb: 'js/pageb',
     grid: 'js/grid',
-    demo: 'js/demo'
+    demo: 'js/demo',
+    vueapp: ['http://localhost:8888/app']
   }
 });

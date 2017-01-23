@@ -2,11 +2,12 @@ define(['grid'],function (grid) {
   console.log('pagea被requires 加载了')
 
   function show (div) {
-    console.log(div)
-    debugger
     var options = {}
 
-    options.datalist = [{name: 'PageA', age: '22', sex: 'male', desc: 'nonono'}]
+    options.rowevent = function (row) {
+      alert(JSON.stringify(row))
+    }
+    options.datalist = [{name: 'PageA1', age: '22', sex: 'male', desc: 'nonono'},{name: 'PageA2', age: '22', sex: 'male', desc: 'nonono'}]
     options.collist = [{
       showname: '姓名',
       colname: 'name',
@@ -28,7 +29,6 @@ define(['grid'],function (grid) {
 
     var pageagrid = grid.grid(div,options)
 
-    console.log(pageagrid)
   }
 
   return {show:show}
