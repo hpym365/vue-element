@@ -1,7 +1,6 @@
 # vue-element
 
-> Senyint Vue Component
-
+> Senyint Vue Component使用vue2.0创建组件，封装之后再普通html或jsp调用例子
 ## Build Setup
 
 ``` bash
