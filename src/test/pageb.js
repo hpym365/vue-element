@@ -1,3 +1,7 @@
+requirejs(['grid'],function () {
+  console.log('页面被requires 加载了')
+})
+
 function showb (div) {
   var options = {}
 
