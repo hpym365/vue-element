@@ -1,18 +1,18 @@
-function grid(divname,datalist,collist,sortfun) {
+function grid(divname,datalist,collist) {
 
 
-  console.log('sortfun')
-  console.log(sortfun)
   var element = document.createElement('div');
   element.id = divname
-  element.innerHTML = '<grid :tt="tt" :collist="collist" :datalist="datalist" :sortfun="sortfun"></grid>'
+  element.innerHTML = '<grid :collist="collist" :datalist="datalist" :sortfun="sortfun"></grid>'
   document.body.appendChild(element)
 
   var grid = window.$grid
+
+  console.log('grid')
+
   var gridvue = new Vue({
     el: '#'+divname,
     data: {
-      tt:'5566',
       datalist: datalist,
       collist: collist,
       sortfun:sortfun

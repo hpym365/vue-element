@@ -7,8 +7,6 @@
       <GridBody :collist="collist" :datalist="datalist"></GridBody>
     </table>
     <button @click="setColumn()">asdfasdf</button>
-    <button>{{testbl}}</button>
-    <input v-model="testbl">
   </div>
 </template>
 
@@ -31,9 +29,6 @@
       },
       mydatalist: function () {
         return this.setdatalist || this.datalist
-      },
-      testbl: function () {
-        return this.tt
       }
     },
     methods: {

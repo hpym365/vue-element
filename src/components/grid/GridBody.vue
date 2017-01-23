@@ -7,7 +7,9 @@
 <template>
   <tbody>
   <tr v-for="row in datalist">
-    <td v-for="col in collist">{{ row[col.colname] }}</td>
+    <td v-for="col in collist">
+     {{ row[col.colname] }}
+    </td>
   </tr>
   </tbody>
 </template>
@@ -21,9 +23,16 @@
     },
     components: {},
     props: ['datalist', 'collist'],
-    methods: {},
+    methods: {
+    },
     computed: {},
     created () {
+    },
+    mounted () {
+//      console.log('this.$el')
+//      console.log(this.$el)
+//      console.log(this)
+//      return this.$el
     }
   }
 </script>
