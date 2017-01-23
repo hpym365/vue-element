@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from '../../../src/js/vue'
 import Hello from 'src/components/Hello'
 
 describe('Hello.vue', () => {

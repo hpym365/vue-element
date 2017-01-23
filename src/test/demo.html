@@ -5,12 +5,12 @@
   <title>Title</title>
   <link rel="stylesheet" type="text/css" href="css/reset.css"/>
   <link rel="stylesheet" type="text/css" href="css/flex.css"/>
+
   <script type=text/javascript src=http://localhost:8888/app.js></script>
-  <script type=text/javascript src=grid.js></script>
-  <script type=text/javascript src=vue.js></script>
-  <script type=text/javascript src=axios.js></script>
-  <script data-main="rukou" src="require.js"></script>
-  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+  <script type=text/javascript src=js/vue.js></script>
+  <script type=text/javascript src=js/axios.js></script>
+  <script data-main="js/rukou" src="js/require.js"></script>
+  <script src="js/jquery-3.1.1.js"></script>
 </head>
 <body>
 <div class="ff-lay ff-v">
@@ -19,9 +19,9 @@
   </div>
   <div class="lay-col-2 ff-lay">
     <div class="lay-row-1 ff-lock" style="width: 202px;">
-      <a onclick="showhtmla($('#showdiv'))">the Page A</a>
+      <a onclick="showhtml($('#showdiv'),'a.html')">the Page A</a>
       <br>
-      <a onclick="showhtmlb($('#showdiv'))">the Page B</a>
+      <a onclick="showhtml($('#showdiv'),'b.html')">the Page B</a>
       <br>
     </div>
     <div id="showdiv" class="lay-row-2 actived">
@@ -36,7 +36,7 @@
 
 <script>
 
-  requirejs(['pagea','pageb'],function () {
+  requirejs(['demo'],function () {
     console.log('页面被requires 加载了')
   })
 

@@ -7,8 +7,9 @@ requirejs.config({
   //never includes a ".js" extension since
   //the paths config could be for a directory.
   paths: {
-    pagea: 'pagea',
-    pageb: 'pagea',
-    grid: 'grid'
+    pagea: 'js/pagea',
+    pageb: 'js/pageb',
+    grid: 'js/grid',
+    demo: 'js/demo'
   }
 });
