@@ -1,6 +1,6 @@
 # vue-element
 
-> Senyint Vue Component使用vue2.0创建组件，封装之后再普通html或jsp调用例子
+> Senyint Vue Component使用vue2.0创建组件，封装之后再普通html或jsp使用requirejs模块冬天加载的调用例子
 ## Build Setup
 
 ``` bash
@@ -13,14 +13,7 @@ npm run dev
 # build for production with minification
 npm run build
 
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
+#查看调用例子
+src/test/demo.html    
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
