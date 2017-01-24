@@ -13,8 +13,10 @@
   <template v-for="(row,index) in datalist">
     <tr @click="rowevent != null?rowevent(row):''" :class="index % 2 === 0?bodytrclass[0]:bodytrclass[1]">
       <td v-if="col.show" v-for="col in collist">
-        <component v-if="col.type" v-bind:is="col.type" :rowdata="row" :colname="col.colname"
-                   :tdcbfun="col.cbfun"></component>
+        <template v-if="col.type">
+          <component v-for="com in col.type" :is="com" :rowdata="row" :colname="col.colname"
+                     :tdcbfun="col.cbfun"></component>
+        </template>
         <template v-else>{{ row[col.colname] }}</template>
       </td>
     </tr>
@@ -43,10 +45,19 @@
           window.alert('这个方法是默认的td回调函数,请设置options.collist对象的cbfun!')
         }
       }
-    },
-    methods: {
-      click: function (value) {
-        window.alert('这个a的名字是' + value)
+    }
+  }
+
+  var buttonComponent = {
+    template: ['<button @click="tdcbfun(rowdata[colname])">{{rowdata[colname]}}</button>'].join(''),
+    props: {
+      rowdata: {},
+      colname: {},
+      tdcbfun: {
+        type: Function,
+        default: function (value) {
+          window.alert('这个方法是默认的td回调函数,请设置options.collist对象的cbfun!')
+        }
       }
     }
   }
@@ -57,7 +68,8 @@
       }
     },
     components: {
-      'acomponent': acomponent
+      'a-component': acomponent,
+      'button-component': buttonComponent
     },
     props: {
       datalist: {

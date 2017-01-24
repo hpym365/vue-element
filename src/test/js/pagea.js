@@ -12,11 +12,11 @@ define(['grid'],function (grid) {
       showname: '姓名',
       colname: 'name',
       show: true,
-      type: 'button-component',
+      type: ['button-component','a-component'],
       sort: true,
       sortType: 'desc',
       width: '50%'
-    }, {showname: '年龄', colname: 'age', show: true, type: 'a-component', sort: true, sortType: 'desc'}, {
+    }, {showname: '年龄', colname: 'age', show: true, type: ['a-component'], sort: true, sortType: 'desc'}, {
       showname: '性别',
       colname: 'sex',
       show: true
@@ -24,7 +24,7 @@ define(['grid'],function (grid) {
       showname: '删除',
       colname: 'delete',
       show: true,
-      type: 'delete-component'
+      type: ['button-component']
     }]
 
     var pageagrid = grid.grid(div,options)
