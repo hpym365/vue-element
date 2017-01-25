@@ -9,7 +9,8 @@ requirejs.config({
   paths: {
     pagea: 'js/pagea',
     pageb: 'js/pageb',
-    grid: 'js/grid',
+    pagec: 'js/pagec',
+    component: 'js/component',
     demo: 'js/demo',
     vueapp: ['http://localhost:8888/app']
   }

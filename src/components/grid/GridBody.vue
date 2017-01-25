@@ -11,8 +11,8 @@
 <template>
   <tbody>
   <template v-for="(row,index) in datalist">
-    <tr @click="rowevent != null?rowevent(row):''" :class="index % 2 === 0?bodytrclass[0]:bodytrclass[1]">
-      <td v-if="col.show" v-for="col in collist">
+    <tr @click="rowevent != null?rowevent(row,this.$el):''" :class="index % 2 === 0?bodytrclass[0]:bodytrclass[1]">
+      <td v-if="col.show" v-for="col in collist" @click="eventbus(row,$event)" @mouseover="eventbus(row,$event)">
         <template v-if="col.type">
           <component v-for="com in col.type" :is="com" :rowdata="row" :colname="col.colname"
                      :tdcbfun="col.cbfun"></component>
@@ -35,7 +35,7 @@
 </style>
 <script>
   var acomponent = {
-    template: ['<a href="javascript:void(0)" @click="tdcbfun(rowdata[colname])">{{rowdata[colname]}}</a>'].join(''),
+    template: ['<a href="javascript:void(0)" >{{rowdata[colname]}}</a>'].join(''),
     props: {
       rowdata: {},
       colname: {},
@@ -45,11 +45,17 @@
           window.alert('这个方法是默认的td回调函数,请设置options.collist对象的cbfun!')
         }
       }
+    },
+    mounted () {
+      var jjj = this.rowdata
+      this.$el.addEventListener('click', function () {
+        window.alert('mounted' + JSON.stringify(jjj))
+      })
     }
   }
 
   var buttonComponent = {
-    template: ['<button @click="tdcbfun(rowdata[colname])">{{rowdata[colname]}}</button>'].join(''),
+    template: ['<button @click="tdcbfun(rowdata,colname)">{{rowdata[colname]}}</button>'].join(''),
     props: {
       rowdata: {},
       colname: {},
@@ -90,6 +96,13 @@
       }
     },
     methods: {
+      eventbus: function (rowdata, event) {
+        debugger
+        var eventname = event.type
+        var eventweizhi = event.currentTarget.localName
+
+        this.$root.$emit(eventweizhi + eventname, rowdata, eventname, eventweizhi)
+      },
       test: function (value) {
         window.alert('这个a的名字是' + value)
       }
@@ -98,6 +111,7 @@
     created () {
     },
     mounted () {
+      return this.$el
 //      console.log('this.$el')
 //      console.log(this.$el)
 //      console.log(this)

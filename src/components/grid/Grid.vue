@@ -7,13 +7,15 @@
       <GridBody :collist="options.collist" :datalist="options.datalist" :rowevent="options.rowevent"
                 :tdcbfun="options.tdcbfun"></GridBody>
     </table>
-    <button @click="setColumn()">asdfasdf</button>
   </div>
 </template>
 
 <script>
   import GridHeader from './GridHeader'
   import GridBody from './GridBody.vue'
+
+  console.log('GridBody')
+  console.log(GridBody)
 
   export default {
     data () {
@@ -32,6 +34,9 @@
       setColumn: function (column) {
         window.alert(this.datalist)
       }
+    },
+    mounted () {
+      return this.$el
     }
   }
 </script>

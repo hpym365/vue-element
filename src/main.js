@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-
+import jquery from 'jquery'
 import store from './store'
 
 import App from './App'
@@ -13,11 +13,14 @@ import Grid from './components/grid/Grid'
 import GridHeader from './components/grid/GridHeader'
 
 import Test from './components/Test.vue'
+import Div from './components/Div.vue'
+import Button from './components/Button.vue'
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
 
 Vue.prototype.$axios = axios
+Vue.prototype.$ = jquery
 
 const routes = [
   {path: '/', component: {template: '<h1>Senyint Vue Element</h1>'}},
@@ -28,8 +31,11 @@ const routes = [
 ]
 
 exports.hello = Hello
-
-window.$grid = Grid
+let returnobject = {}
+returnobject.$grid = Grid
+returnobject.$div = Div
+returnobject.$button = Button
+window.returnobject = returnobject
 
 const router = new VueRouter({
   mode: 'hash',

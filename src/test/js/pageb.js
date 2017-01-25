@@ -1,4 +1,4 @@
-define(['grid'],function (grid) {
+define(['component'],function (grid) {
   console.log('pageb被requires 加载了')
 
   function show (div) {

@@ -1,7 +1,7 @@
 function showhtml (div,html,griddiv) {
 
   $.ajax({url:html}).then(function(htmlobj){
-    div.empty();
+    div.empty()
     div.append(htmlobj)
 
     if(html === 'a.html'){
@@ -14,6 +14,12 @@ function showhtml (div,html,griddiv) {
     if(html === 'b.html'){
       require(['pageb'],function (pageb) {
         pageb.show($('#bdiv'))
+      })
+    }
+
+    if(html === 'c.html'){
+      require(['pagec'],function (pagec) {
+        pagec.show($('#cdiv'))
       })
     }
 
