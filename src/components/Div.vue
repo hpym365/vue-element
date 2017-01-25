@@ -7,9 +7,11 @@
     <div class="lay-col-2 ff-lay">
       <div id="vueshowbutton" class="lay-row-1 ff-lock" style="width: 202px;">
         <h1>div 组件的LEFT</h1>
+        <slot name="left"></slot>
       </div>
       <div id="vueshowdiv" class="lay-row-2 actived">
         <h1>div 组件的RIGHT</h1>
+        <slot name="right"></slot>
       </div>
     </div>
   </div>
