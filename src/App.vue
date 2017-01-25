@@ -5,6 +5,8 @@
     <router-link to="/grid">Grid Component</router-link>
     <br>
     <router-link to="/gridheader">Grid Header Component</router-link>
+    <br>
+    <router-link to="/bug">Bug</router-link>
 
     <br><br><br><br><br>
     <transition name="bounce">

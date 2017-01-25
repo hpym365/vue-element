@@ -47,6 +47,28 @@ define([], function () {
     return divvue
   }
 
+  function loading(div, options) {
+    div.append('<loading :options="options" :ld="ld"></loading><p>{{ this.options }}123aa</p>')
+    var loading = window.returnobject.$loading
+    var loadingvue = new Vue({
+      el: div[0],
+      data: {
+        options: options,
+        ld: false
+      },
+      components: {loading},
+      methods: {
+        changeLoading: function () {
+          this.options.loading = !this.options.loading
+          this.ld = !this.ld
+        }
+      }
+    })
+
+    loadingvue.jqdom = $(loadingvue.$el)
+    return loadingvue
+  }
+
   function grid(div, options) {
     div.empty()
     div.append('<grid :options="options"></grid>')
@@ -150,5 +172,5 @@ define([], function () {
   }
 
 
-  return {grid: grid, cc: createComponent, div: div, button}
+  return {grid: grid, cc: createComponent, div: div, button, loading}
 })

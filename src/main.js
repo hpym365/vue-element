@@ -15,6 +15,8 @@ import GridHeader from './components/grid/GridHeader'
 import Test from './components/Test.vue'
 import Div from './components/Div.vue'
 import Button from './components/Button.vue'
+import Loading from './components/Loading.vue'
+import Bug from './components/Bug.vue'
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
@@ -27,7 +29,8 @@ const routes = [
   {path: '/hello', component: Hello},
   {path: '/grid', component: Test},
   {path: '/gridheader', component: GridHeader},
-  {path: '*', component: {template: '<p>404页面什么都没有啊</p>'}}
+  {path: '/bug', component: Bug},
+  {path: '*', component: {template: '<p>404页面什么都没有</p>'}}
 ]
 
 exports.hello = Hello
@@ -35,6 +38,7 @@ let returnobject = {}
 returnobject.$grid = Grid
 returnobject.$div = Div
 returnobject.$button = Button
+returnobject.$loading = Loading
 window.returnobject = returnobject
 
 const router = new VueRouter({

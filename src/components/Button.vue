@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="eventbus" @mouseover="eventbus">{{options.btnname}}</button>
+    <button @click="options.funclick">{{options.btn}}</button>
   </div>
 </template>
 
@@ -12,7 +12,12 @@
     props: {
       options: {
         type: Object,
-        default: {btn: '按钮'}
+        default: {
+          btn: '按钮',
+          funclick: function () {
+            window.alert('按钮默认点击事件')
+          }
+        }
       }
     },
     method: {
