@@ -17,12 +17,10 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
-    filename: '[name].js'
-  },
-  externals: {
-    app: 'app',
-    grid: './src/component/grid/Grid',
-    hello: './src/component/grid/Hello'
+    filename: '[name].js',
+    library: 'senyint',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   resolve: {
     extensions: ['', '.js', '.vue', '.json'],
